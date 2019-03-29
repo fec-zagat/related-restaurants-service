@@ -1,4 +1,5 @@
 const faker = require('faker');
+
 // generate 'realistic' rating
 const checkRating = (stars) => {
   let rating = 0;
@@ -73,7 +74,7 @@ const randomCities = [faker.fake('{{address.city}}'), faker.fake('{{address.city
 // const description = faker.fake('{{lorem.paragraph}}');
 
 const makeData = () => {
-  const test = [];
+  const data = [];
   for (let i = 0; i < 100; i += 1) {
     const restaurantInfo = {
       name: randomName(),
@@ -85,12 +86,12 @@ const makeData = () => {
       googleRating: checkRating(Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10),
       description: faker.fake('{{lorem.paragraph}}'),
     };
-    test.push(restaurantInfo);
+    data.push(restaurantInfo);
   }
-  return test;
+  return data;
 };
 
-console.log(makeData());
+module.exports = { makeData };
 // ID (unique identifier): _id
 // Name of restaurant:  faker data for restaurant name
 // City: faker data for city
