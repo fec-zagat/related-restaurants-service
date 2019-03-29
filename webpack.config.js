@@ -1,26 +1,26 @@
-var path = require("path");
+const path = require('path');
 
-var DIST_DR = path.join(__dirname, "/public");
-var SRC_DR = path.join(__dirname, "/client");
+const DIST_DR = path.join(__dirname, '/public');
+const SRC_DR = path.join(__dirname, '/client');
 
-var config = {
+const config = {
   entry: `${SRC_DR}/index.jsx`,
   output: {
-    filename: "bundle.js",
+    filename: 'bundle.js',
     path: DIST_DR,
   },
   module: {
     rules: [
       {
         test: /\.jsx?/,
-        include: SRC_DR,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  }
+        exclude: /node_modules/,
+        loader: ['babel-loader'],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };
 
 module.exports = config;
