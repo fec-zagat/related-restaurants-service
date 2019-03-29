@@ -4,7 +4,6 @@ mongoose.connect('mongodb://localhost/fecsampledata');
 
 const similarRestaurant = mongoose.Schema({
   // TODO: your schema here!
-  id: { type: Number, unique: true },
   name: String,
   city: String,
   cuisine: String,
@@ -27,4 +26,4 @@ const save = (currentRestaurant, callback) => {
   });
 };
 
-module.exports = { save };
+module.exports = { Restaurant, save };
