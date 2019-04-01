@@ -26,4 +26,14 @@ const save = (currentRestaurant, callback) => {
   });
 };
 
-module.exports = { Restaurant, save };
+const retrieve = (options, callback) => {
+  Restaurant.find(options, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
+
+module.exports = { Restaurant, save, retrieve };
