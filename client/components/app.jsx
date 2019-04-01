@@ -39,11 +39,10 @@ class App extends React.Component {
 
   render() {
     let list = [];
-    const { data } = this.state;
-    const { cuisine } = this.state;
-    const { district } = this.state;
-    const { currentRestaurant } = this.state;
-    const { districts } = this.state;
+    const {
+      data, cuisine, district, currentRestaurant, districts,
+    } = this.state;
+
     const type = data.filter(restaurant => restaurant.cuisine === cuisine);
     const location = type.filter(restaurant => restaurant.district === district);
     if (location.length === 6) {
@@ -59,6 +58,17 @@ class App extends React.Component {
         }
         if (location.length > 5) {
           break;
+        }
+      }
+      if (location.length < 6) {
+        for (let i = 0; i < data.length; i += 1) {
+          const restaurant = data[i];
+          if (!location.includes(restaurant)) {
+            location.push(restaurant);
+          }
+          if (location.length > 5) {
+            break;
+          }
         }
       }
       list = location;
