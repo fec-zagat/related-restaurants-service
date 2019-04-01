@@ -46,7 +46,7 @@ const randomName = () => {
   return submitName.trim();
 };
 // set amount of random districts
-const districts = [faker.fake('{{lorem.word}}'), faker.fake('{{lorem.words}}'), faker.fake('{{lorem.word}}'), faker.fake('{{lorem.word}}'), faker.fake('{{lorem.word}}')];
+const districts = [faker.fake('{{lorem.word}}'), faker.fake('{{lorem.words}}'), faker.fake('{{lorem.word}}'), faker.fake('{{lorem.words}}'), faker.fake('{{lorem.word}}')];
 const capitalizeRandomDistrict = (district) => {
   const words = district.split(' ');
   let name = '';
@@ -59,28 +59,17 @@ const capitalizeRandomDistrict = (district) => {
   }
   return name.trim();
 };
-const randomDistrict = capitalizeRandomDistrict(faker.random.arrayElement(districts));
-// set amount of random cities
-const randomCities = [faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}')];
 
-// generate fake data  for each field
-// const restaurantName = randomName();
-// const restaurantCity = faker.random.arrayElement(randomCities);
-// const restaurantCuisine = faker.random.arrayElement(['Argentina', 'Cajun', 'Estonian', 'Chinese', 'Filipino', 'Italian', 'Korean', 'Mexican', 'Polish', 'Romanian', 'Russian', 'Thai', 'Pakistani', 'Japanese', 'Nepalese', 'Peruvian', 'Portuguese', 'Brazilian', 'Malaysian', 'Indian']);
-// const restaurantDistrict = randomDistrict;
-// const restaurantPriceRange = faker.random.arrayElement(['$', '$$', '$$$']);
-// const ratingsZagat = Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10;
-// const ratingsGoogle = checkRating(ratingsZagat);
-// const description = faker.fake('{{lorem.paragraph}}');
+const randomCities = [faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}')];
 
 const makeData = () => {
   const data = [];
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 1000; i += 1) {
     const restaurantInfo = {
       name: randomName(),
       city: faker.random.arrayElement(randomCities),
       cuisine: faker.random.arrayElement(['Argentina', 'Cajun', 'Estonian', 'Chinese', 'Filipino', 'Italian', 'Korean', 'Mexican', 'Polish', 'Romanian', 'Russian', 'Thai', 'Pakistani', 'Japanese', 'Nepalese', 'Peruvian', 'Portuguese', 'Brazilian', 'Malaysian', 'Indian']),
-      district: randomDistrict,
+      district: capitalizeRandomDistrict(faker.random.arrayElement(districts)),
       price: faker.random.arrayElement(['$', '$$', '$$$']),
       zagatRating: Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10,
       googleRating: checkRating(Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10),
@@ -90,14 +79,4 @@ const makeData = () => {
   }
   return data;
 };
-
 module.exports = { makeData };
-// ID (unique identifier): _id
-// Name of restaurant:  faker data for restaurant name
-// City: faker data for city
-// Type of food (i.e. Seafood): faker data for category of food
-// District (i.e. Outer Richmond): faker data for name of district
-// Price Range (i.e. $ - $$$): faker/random number for price range
-// Zagat Rating: faker data for rating
-// Google Rating: faker data for ratings
-// Description (If any): ipsum random data for review.
