@@ -42,36 +42,36 @@ class App extends React.Component {
     const {
       data, cuisine, district, currentRestaurant, districts,
     } = this.state;
-
     const type = data.filter(restaurant => restaurant.cuisine === cuisine);
     const location = type.filter(restaurant => restaurant.district === district);
-    if (location.length === 6) {
-      list = location;
-    } else if (location.length > 6) {
-      list = location.slice(0, 6);
-    } else if (location.length < 6) {
+    const listFilter = location;
+    if (listFilter.length === 6) {
+      list = listFilter;
+    } else if (listFilter.length > 6) {
+      list = listFilter.slice(0, 6);
+    } else if (listFilter.length < 6) {
       const additionalRestaurants = data.filter(restaurant => restaurant.district === district);
       for (let i = 0; i < additionalRestaurants.length; i += 1) {
         const restaurant = additionalRestaurants[i];
-        if (!location.includes(restaurant)) {
-          location.push(restaurant);
+        if (!listFilter.includes(restaurant)) {
+          listFilter.push(restaurant);
         }
-        if (location.length > 5) {
+        if (listFilter.length > 5) {
           break;
         }
       }
-      if (location.length < 6) {
+      if (listFilter.length < 6) {
         for (let i = 0; i < data.length; i += 1) {
           const restaurant = data[i];
-          if (!location.includes(restaurant)) {
-            location.push(restaurant);
+          if (!listFilter.includes(restaurant)) {
+            listFilter.push(restaurant);
           }
-          if (location.length > 5) {
+          if (listFilter.length > 5) {
             break;
           }
         }
       }
-      list = location;
+      list = listFilter;
     }
 
     return (
