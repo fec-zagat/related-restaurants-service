@@ -11,13 +11,14 @@
     "start": "nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "test": "jest",
-    "db:setup": "node databased/seed.js"
+    "seedDB": "node database/seed.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
@@ -26,9 +27,11 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.1.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
@@ -37,6 +40,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.5.0",
-    "webpack": "^2.2.1"
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }
