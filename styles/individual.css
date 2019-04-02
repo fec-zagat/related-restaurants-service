@@ -1,0 +1,28 @@
+/* .related-restaurants-section {
+  color: yellow;
+} */
+.single-restaurant {
+    background: white;
+    color: #101820;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+}
+.restaurant-title {
+  color: #101820;
+  font: 22px/28px 'Calibre-Medium';
+  letter-spacing: .086em;
+  text-transform: uppercase;
+}
+
+.layout-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.cuisine-district-facts-details {
+  margin-bottom: 3px;
+  margin-top: 2px;
+}
