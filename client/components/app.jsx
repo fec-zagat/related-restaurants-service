@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import RelatedRestaurant from './RelatedRestaurant';
+import '../../styles/section.css';
 
 class App extends React.Component {
   constructor() {
