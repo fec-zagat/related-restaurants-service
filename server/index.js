@@ -32,6 +32,20 @@ app.post('/api/restaurants/', (req, res) => {
   });
 });
 
+app.get('/api/restaurants', (req, res) => {
+  // console.log(req.paramas.cuisine);
+  const options = {
+    // cuisine: req.paramas.cuisine,
+    // district: req.paramas.district,
+  };
+  db.retrieve(options, (err, success) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.status(200).send(success);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
