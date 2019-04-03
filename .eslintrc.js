@@ -21,5 +21,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    "react/forbid-prop-types": [0, { "forbid": []}]
   },
 };
