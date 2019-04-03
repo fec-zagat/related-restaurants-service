@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import RelatedRestaurant from './RelatedRestaurant';
+import RestaurantList from './RestaurantList';
 import '../../styles/section.css';
 
 class App extends React.Component {
@@ -8,10 +8,9 @@ class App extends React.Component {
     super();
     this.state = {
       data: [],
-      cuisine: '',
-      district: '',
+      currentDistrict: '',
+      currentCuisine: '',
       currentRestaurant: '',
-      districts: {},
     };
   }
 
@@ -21,65 +20,26 @@ class App extends React.Component {
       url: endpoint,
       method: 'GET',
       success: (query) => {
-        const newDistricts = {};
-        for (let i = 0; i < query.length; i += 1) {
-          if (newDistricts[query[i].district] === undefined) {
-            newDistricts[query[i].district] = query[i].district;
-          }
-        }
         this.setState({
           data: query,
-          cuisine: query[0].cuisine,
-          district: query[0].district,
-          currentRestaurant: query[0].name,
-          districts: newDistricts,
+          currentDistrict: query[50].district,
+          currentCuisine: query[50].cuisine,
+          currentRestaurant: query[50].name,
         });
       },
     });
   }
 
   render() {
-    let list = [];
     const {
-      data, cuisine, district, currentRestaurant, districts,
+      data, currentCuisine, currentDistrict, currentRestaurant,
     } = this.state;
-    const type = data.filter(restaurant => restaurant.cuisine === cuisine);
-    const location = type.filter(restaurant => restaurant.district === district);
-    const listFilter = location;
-    if (listFilter.length === 6) {
-      list = listFilter;
-    } else if (listFilter.length > 6) {
-      list = listFilter.slice(0, 6);
-    } else if (listFilter.length < 6) {
-      const additionalRestaurants = data.filter(restaurant => restaurant.district === district);
-      for (let i = 0; i < additionalRestaurants.length; i += 1) {
-        const restaurant = additionalRestaurants[i];
-        if (!listFilter.includes(restaurant)) {
-          listFilter.push(restaurant);
-        }
-        if (listFilter.length > 5) {
-          break;
-        }
-      }
-      if (listFilter.length < 6) {
-        for (let i = 0; i < data.length; i += 1) {
-          const restaurant = data[i];
-          if (!listFilter.includes(restaurant)) {
-            listFilter.push(restaurant);
-          }
-          if (listFilter.length > 5) {
-            break;
-          }
-        }
-      }
-      list = listFilter;
-    }
 
     return (
       <div className="related-places">
         <h5 className="related-places-section-title">RELATED PLACES</h5>
-        <div className="related-near-title">{`More ${cuisine} near ${currentRestaurant}`}</div>
-        <RelatedRestaurant data={list} districts={districts} />
+        <div className="related-near-title">{`More ${currentCuisine} near ${currentRestaurant}`}</div>
+        <RestaurantList data={data} cuisine={currentCuisine} district={currentDistrict} />
       </div>
     );
   }
