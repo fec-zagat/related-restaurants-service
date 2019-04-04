@@ -16,10 +16,14 @@ const config = {
         exclude: /node_modules/,
         loader: ['babel-loader'],
       },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
 };
 

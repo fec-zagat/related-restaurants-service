@@ -1,0 +1,17 @@
+/* body {
+  background: #f1f1f1;
+}
+.related-places {
+  background-color: red;
+} */
+
+.related-places-section-title {
+  color: #656666;
+  font: 16px/24px 'Calibre-Semibold';
+  letter-spacing: .086em;
+  text-transform: uppercase;
+}
+
+/* .related-near-title {
+  background-color: purple;
+} */

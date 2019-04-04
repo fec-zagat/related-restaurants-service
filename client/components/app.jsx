@@ -1,16 +1,16 @@
 import React from 'react';
 import $ from 'jquery';
-import RelatedRestaurant from './RelatedRestaurant';
+import RestaurantList from './RestaurantList';
+import '../../styles/section.css';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       data: [],
-      cuisine: '',
-      district: '',
+      currentDistrict: '',
+      currentCuisine: '',
       currentRestaurant: '',
-      districts: {},
     };
   }
 
@@ -20,36 +20,26 @@ class App extends React.Component {
       url: endpoint,
       method: 'GET',
       success: (query) => {
-        const newDistricts = {};
-        for (let i = 0; i < query.length; i += 1) {
-          if (newDistricts[query[i].district] === undefined) {
-            newDistricts[query[i].district] = query[i].district;
-          }
-        }
         this.setState({
           data: query,
-          cuisine: query[0].cuisine,
-          district: query[0].district,
-          currentRestaurant: query[0].name,
-          districts: newDistricts,
+          currentDistrict: query[50].district,
+          currentCuisine: query[50].cuisine,
+          currentRestaurant: query[50].name,
         });
       },
     });
   }
 
   render() {
-    const { data } = this.state;
-    const { cuisine } = this.state;
-    const { district } = this.state;
-    const { currentRestaurant } = this.state;
-    const { districts } = this.state;
-    const type = data.filter(restaurant => restaurant.cuisine === cuisine);
-    const location = type.filter(restaurant => restaurant.district === district);
+    const {
+      data, currentCuisine, currentDistrict, currentRestaurant,
+    } = this.state;
+
     return (
       <div className="related-places">
         <h5 className="related-places-section-title">RELATED PLACES</h5>
-        <div className="related-near-title">{`More ${cuisine} near ${currentRestaurant}`}</div>
-        <RelatedRestaurant data={location} districts={districts} />
+        <div className="related-near-title">{`More ${currentCuisine} near ${currentRestaurant}`}</div>
+        <RestaurantList data={data} cuisine={currentCuisine} district={currentDistrict} />
       </div>
     );
   }
