@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RestaurantView from './RestaurantView';
-import '../../styles/individual.css';
+import '../../styles/singlerestaurant.css';
 
 class RelatedRestaurants extends React.Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class RelatedRestaurants extends React.Component {
 
   render() {
     const { data } = this.props;
-
     return (
       <div className="related-restaurants-section layout-row">
         {data.map(review => (

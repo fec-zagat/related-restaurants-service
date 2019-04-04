@@ -26,3 +26,10 @@
   margin-bottom: 3px;
   margin-top: 2px;
 }
+.image-carousel-viewer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100px;
+  width: 100%;
+}
