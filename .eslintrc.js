@@ -21,6 +21,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    "react/forbid-prop-types": [0, { "forbid": []}]
+    "react/forbid-prop-types": [0, { "forbid": []}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },
 };
