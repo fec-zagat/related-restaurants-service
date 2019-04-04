@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/individual.css';
+import '../../styles/singlerestaurant.css';
 
 class RestaurantView extends React.Component {
   constructor(props) {
