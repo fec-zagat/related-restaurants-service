@@ -1,17 +1,42 @@
-/* body {
+@font-face {
+  font-family: Calibre-Regular;
+  src: url(../styles/fonts/Calibre-Regular.ttf);
+}
+
+@font-face {
+  font-family: Calibre-Medium;
+  src: url(../styles/fonts/Calibre-Medium.ttf);
+}
+
+@font-face {
+  font-family: Calibre-Light;
+  src: url(../styles/fonts/Calibre-Light.ttf);
+}
+
+
+body {
   background: #f1f1f1;
 }
 .related-places {
-  background-color: red;
-} */
+  vertical-align: top;
+  width: 100%;
+  line-height:20px;
+  justify-content: space-evenly;
+}
 
 .related-places-section-title {
   color: #656666;
   font: 16px/24px 'Calibre-Semibold';
   letter-spacing: .086em;
   text-transform: uppercase;
+  
 }
 
-/* .related-near-title {
-  background-color: purple;
-} */
+.related-near-title {
+  border-top: 1px #101820 solid;
+  margin: 0 32px 25px 0;
+  padding-top: 6px;
+  color: #101820;
+  font: 15px/20px 'Calibre-Regular';
+  letter-spacing: .013em;
+}
