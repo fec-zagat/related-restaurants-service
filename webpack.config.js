@@ -26,6 +26,13 @@ const config = {
           'file-loader',
         ],
       },
+      {
+        test: /\.svg/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {},
+        },
+      },
     ],
   },
   resolve: {
