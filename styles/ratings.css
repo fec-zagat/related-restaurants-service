@@ -1,22 +1,35 @@
-.zagat-logo-container {
-  background: url('/.svg/tagaz-logo.svg');
+.tagaz-logo {
+  background: no-repeat center url('../styles/svg/tagazlogo.svg');
+  width: 20px;
+  height: 20px;
+  bottom: 1px;
+  padding-right: 8px;
+  position: relative;
+  vertical-align: middle;
+  background-size: 20px 20px;
 }
-.google-logo-container {
-  background: url('/.svg/google-logo.svg');
+.google-logo {
+  background: no-repeat url('../styles/svg/googlelogo.svg');
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 3px;
+  padding-left: 3px;
+  padding-right: 4px;
+  background-size: 16px 16px;
 }
-
 .ratings-line {
   flex-direction:row;
   display: flex;
   flex-wrap: wrap;
 }
-
 .zagat-rating-text {
   color: #101820;
   font: 14px/20px 'Calibre-Medium';
   letter-spacing: .061em;
   text-transform: uppercase;
   padding-right: 2.5px;
+  padding-left: 2.5px;
 }
 .google-rating-text {
   padding-top: 1px;

@@ -30,22 +30,6 @@
   flex-wrap: wrap;
 }
 
-.tagazlogo {
-  bottom: 1px;
-  height: 20px;
-  padding-right: 4px;
-  position: relative;
-  vertical-align: middle;
-  width: 20px;
-}
-.googlelogo {
-  height: 16px;
-  position: relative;
-  top: 3px;
-  width: 16px;
-  padding-left: 3px;
-  padding-right: 4px;
-}
 .ratings-divider {
   border-right: 1px solid #d0d2d3;
   height: 20px;
