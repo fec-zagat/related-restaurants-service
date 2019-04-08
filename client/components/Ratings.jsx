@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/ratings.css';
+import tagazlogo from '../../styles/png/tagazlogo.png';
+import googlelogo from '../../styles/png/googlelogo.png';
+// import stars from '../../styles/png/googlestars.png';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -10,16 +14,28 @@ class Ratings extends React.Component {
   }
 
   render() {
-    const { zagatRating, googleRating, price } = this.props;
+    const { zagatRating, googleRating } = this.props;
 
-    return (<div>{`${zagatRating > 0 ? `FOOD: ${zagatRating}` : 'ZAGAT RATED'} * GRPH: ${googleRating} * ${price}`}</div>);
+    return (
+      <div className="ratings-line">
+        <img src={tagazlogo} className="tagazlogo" alt="" />
+        <div className="zagat-rating-text">{zagatRating > 0 ? ' FOOD ' : 'ZAGAT RATED'}</div>
+        <div className="zagat-rating-number">{zagatRating}</div>
+        <div className="ratings-divider" />
+        <img src={googlelogo} className="googlelogo" alt="" />
+        <div className="google-rating-text">{googleRating}</div>
+        <div className="stars">
+          <div className="empty-stars" />
+          <div className="full-stars" style={{ width: `${googleRating / 5 * 100}%` }} />
+        </div>
+      </div>
+    );
   }
 }
 
 Ratings.propTypes = {
   zagatRating: PropTypes.number.isRequired,
   googleRating: PropTypes.number.isRequired,
-  price: PropTypes.string.isRequired,
 };
 
 export default Ratings;
