@@ -36,7 +36,7 @@ const randomName = () => {
   if (randomizer === 1) {
     name = faker.lorem.word();
     submitName = capitalize(name);
-  } else if (randomizer === 2) {
+  } else if (randomizer > 1) {
     name = faker.lorem.words();
     splitName = name.split(' ');
     for (let i = 0; i < splitName.length; i += 1) {
@@ -62,6 +62,16 @@ const capitalizeRandomDistrict = (district) => {
 
 const randomCities = [faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}'), faker.fake('{{address.city}}')];
 
+const pictureSet = () => {
+  const pictureArray = [];
+  while (pictureArray.length < 20) {
+    if (!pictureArray.includes(`https://s3-us-west-1.amazonaws.com/samplepicturesfec/${Math.floor(Math.random() * (100 - 1) + 1)}.jpg`)) {
+      pictureArray.push(`https://s3-us-west-1.amazonaws.com/samplepicturesfec/${Math.floor(Math.random() * (100 - 1) + 1)}.jpg`);
+    }
+  }
+  return pictureArray;
+};
+
 const makeData = () => {
   const data = [];
   for (let i = 0; i < 1000; i += 1) {
@@ -73,7 +83,8 @@ const makeData = () => {
       price: faker.random.arrayElement(['$', '$$', '$$$']),
       zagatRating: Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10,
       googleRating: checkRating(Math.round(10 * (Math.random() * (5 - 4) + 4)) / 10),
-      description: faker.fake('{{lorem.paragraph}}'),
+      description: faker.lorem.sentences(3),
+      pictures: pictureSet(),
     };
     data.push(restaurantInfo);
   }
