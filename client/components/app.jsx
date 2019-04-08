@@ -22,9 +22,9 @@ class App extends React.Component {
       success: (query) => {
         this.setState({
           data: query,
-          currentDistrict: query[50].district,
-          currentCuisine: query[50].cuisine,
-          currentRestaurant: query[50].name,
+          currentDistrict: query[3].district,
+          currentCuisine: query[3].cuisine,
+          currentRestaurant: query[3].name,
         });
       },
     });
