@@ -1,0 +1,53 @@
+.zagat-logo-container {
+  background: url('/.svg/tagaz-logo.svg');
+}
+.google-logo-container {
+  background: url('/.svg/google-logo.svg');
+}
+
+.ratings-line {
+  flex-direction:row;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zagat-rating-text {
+  color: #101820;
+  font: 14px/20px 'Calibre-Medium';
+  letter-spacing: .061em;
+  text-transform: uppercase;
+  padding-right: 2.5px;
+}
+.google-rating-text {
+  padding-top: 1px;
+  color: #101820;
+  font: 14px/20px 'Calibre-Regular';
+  letter-spacing: .086em;
+}
+.zagat-rating-number {
+  color: #b70038;
+  font: 14px/20px 'Calibre-Medium';
+  letter-spacing: .061em;
+}
+.stars {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #b1b1b1;
+  overflow: hidden;
+  padding-right: 2.5px;
+  padding-left: 2.5px;
+}
+.full-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #101820;;
+  padding-left: 2.5px;
+}
+.empty-stars:before, .full-stars:before {
+  content:"\2605\2605\2605\2605\2605";
+  font-size: 14pt;
+}

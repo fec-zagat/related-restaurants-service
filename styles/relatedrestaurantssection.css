@@ -34,9 +34,10 @@ body {
 
 .related-near-title {
   border-top: 1px #101820 solid;
-  margin: 0 32px 25px 0;
+  margin: 0px 32px 25px 0;
   padding-top: 6px;
   color: #101820;
-  font: 15px/20px 'Calibre-Regular';
-  letter-spacing: .013em;
+  font: 20px 'Calibre-Regular';
+  letter-spacing: .004em;
+  line-height: 32px;
 }

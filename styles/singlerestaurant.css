@@ -2,20 +2,25 @@
   flex-direction:row;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .single-restaurant {
   background: white;
   color: #101820;
   text-decoration: none;
-  width: 45%;
+  width: 47%;
   align-content: center;
-  /* justify-content: space-evenly; */
   margin-right: 32px;
   margin-bottom: 40px;
   cursor: pointer;
   flex: 0 1 auto;
   display: flex;
   min-width: 300px;
+  max-height: 250px;
+}
+
+.single-restaurant:hover .restaurant-title {
+  text-decoration: underline;
+  text-decoration-color: red;
 }
 
