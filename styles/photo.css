@@ -1,0 +1,29 @@
+.image-container {
+  max-width: 40%;
+  max-height: 100%;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  
+}
+.image-carousel-viewer {
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100px;
+  height:100%;
+  width: 100%;
+  display:block;
+}
+.button-position {
+  z-index: 1000;
+  fill: white;
+  height: 40px;
+  vertical-align: middle;
+  width: 40px;
+}
+.button-position:hover {
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}

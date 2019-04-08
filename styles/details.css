@@ -1,0 +1,63 @@
+.restaurant-title {
+  color: #101820;
+  font: 18px/20px 'Calibre-Medium';
+  letter-spacing: .086em;
+  text-transform: uppercase;
+}
+.details-section {
+  max-width: 60%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 40px 12px;
+  align-content: stretch;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.body-description {
+  padding-top: 3px;
+  font: 15px/20px 'Calibre-Regular';
+  letter-spacing: .013em;
+}
+.cuisine-district-facts-details {
+  padding: 5px 0px;
+  margin-bottom: 3px;
+  margin-top: 2px;
+  color: #656666;
+  font: 15px/24px 'Calibre-Regular';
+  letter-spacing: .013em;
+  flex-direction:row;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tagazlogo {
+  bottom: 1px;
+  height: 20px;
+  padding-right: 4px;
+  position: relative;
+  vertical-align: middle;
+  width: 20px;
+}
+.googlelogo {
+  height: 16px;
+  position: relative;
+  top: 3px;
+  width: 16px;
+  padding-left: 3px;
+  padding-right: 4px;
+}
+.ratings-divider {
+  border-right: 1px solid #d0d2d3;
+  height: 20px;
+  margin: 0 10px;
+}
+.details-cuisine {
+  padding-right:3px;
+}
+.details-district {
+  padding-right:3px;
+  padding-left:3px;
+}
+.details-price {
+  padding-left:3px;
+}

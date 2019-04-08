@@ -15,7 +15,7 @@ class RelatedRestaurants extends React.Component {
   render() {
     const { data } = this.props;
     return (
-      <div className="related-restaurants-section layout-row">
+      <div className="related-restaurants-section">
         {data.map(review => (
           <RestaurantView key={review._id} info={review} />
         ))}
