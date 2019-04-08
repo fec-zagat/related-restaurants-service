@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Ratings from './Ratings';
 import '../../styles/singlerestaurant.css';
+import '../../styles/details.css';
+import '../../styles/photo.css';
+import leftButton from '../../styles/png/leftButton.png';
+import rightButton from '../../styles/png/rightButton.png';
+
 
 class RestaurantView extends React.Component {
   constructor(props) {
@@ -44,18 +50,30 @@ class RestaurantView extends React.Component {
     const { pictures, index } = this.state;
     const {
       info: {
-        name, cuisine, district, zagatRating, googleRating, description,
+        name, cuisine, district, zagatRating, googleRating, description, price,
       },
     } = this.props;
     return (
       <div className="single-restaurant">
-        <button onClick={() => this.nextPhotoLeft()} type="submit">Left</button>
-        <img className="image-carousel-viewer" src={pictures[index]} alt="" />
-        <button onClick={() => this.nextPhotoRight()} type="submit">Right</button>
-        <h5 className="restaurant-tile">{name}</h5>
-        <div className="cuisine-district-facts-details">{`${cuisine} ${district}`}</div>
-        <div>{`${zagatRating} ${googleRating}`}</div>
-        <div>{description}</div>
+        <div className="image-container" style={{ position: 'relative' }}>
+          <img src={leftButton} className="button-position" style={{ position: 'absolute', top: 110, left: 0 }} onClick={() => this.nextPhotoLeft()} onKeyPress='' alt=" " />
+          <img src={rightButton} className="button-position" style={{ position: 'absolute', top: 110, right: 0 }} onClick={() => this.nextPhotoRight()} onKeyPress='' alt=" " />
+          <img className="image-carousel-viewer" src={pictures[index]} alt="" />
+        </div>
+        <div className="details-section">
+          <div className="related-restaurant-type-district-container">
+            <div className="restaurant-title">{name}</div>
+            <div className="cuisine-district-facts-details">
+              <div className="details-cuisine">{cuisine}</div>
+              &middot;
+              <div className="details-district">{district}</div>
+              &middot;
+              <div className="details-price">{price}</div>
+            </div>
+          </div>
+          <Ratings zagatRating={zagatRating} googleRating={googleRating} />
+          <div className="body-description">{description}</div>
+        </div>
       </div>
     );
   }
