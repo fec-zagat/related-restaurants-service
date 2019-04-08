@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/ratings.css';
-import tagazlogo from '../../styles/png/tagazlogo.png';
-import googlelogo from '../../styles/png/googlelogo.png';
-// import stars from '../../styles/png/googlestars.png';
+// import tagazlogo from '../../styles/png/tagazlogo.png';
+// import googlelogo from '../../styles/png/googlelogo.png';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -18,11 +17,13 @@ class Ratings extends React.Component {
 
     return (
       <div className="ratings-line">
-        <img src={tagazlogo} className="tagazlogo" alt="" />
+        {/* <img src={tagazlogo} className="tagazlogo" alt="" /> */}
+        <div className="tagaz-logo" alt="" />
         <div className="zagat-rating-text">{zagatRating > 0 ? ' FOOD ' : 'ZAGAT RATED'}</div>
         <div className="zagat-rating-number">{zagatRating}</div>
         <div className="ratings-divider" />
-        <img src={googlelogo} className="googlelogo" alt="" />
+        <div className="google-logo" />
+        {/* <img src={googlelogo} className="googlelogo" alt="" /> */}
         <div className="google-rating-text">{googleRating}</div>
         <div className="stars">
           <div className="empty-stars" />

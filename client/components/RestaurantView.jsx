@@ -4,9 +4,6 @@ import Ratings from './Ratings';
 import '../../styles/singlerestaurant.css';
 import '../../styles/details.css';
 import '../../styles/photo.css';
-import leftButton from '../../styles/png/leftButton.png';
-import rightButton from '../../styles/png/rightButton.png';
-
 
 class RestaurantView extends React.Component {
   constructor(props) {
@@ -56,8 +53,8 @@ class RestaurantView extends React.Component {
     return (
       <div className="single-restaurant">
         <div className="image-container" style={{ position: 'relative' }}>
-          <img src={leftButton} className="button-position" style={{ position: 'absolute', top: 110, left: 0 }} onClick={() => this.nextPhotoLeft()} onKeyPress='' alt=" " />
-          <img src={rightButton} className="button-position" style={{ position: 'absolute', top: 110, right: 0 }} onClick={() => this.nextPhotoRight()} onKeyPress='' alt=" " />
+          <div className="left-arrow" style={{ position: 'absolute', top: 110, left: 0 }} onClick={() => this.nextPhotoLeft()} onKeyPress={this.handleKeyPress} role="button" />
+          <div className="right-arrow" style={{ position: 'absolute', top: 110, right: 0 }} onClick={() => this.nextPhotoRight()} onKeyPress={this.handleKeyPress} role="button" />
           <img className="image-carousel-viewer" src={pictures[index]} alt="" />
         </div>
         <div className="details-section">
