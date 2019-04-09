@@ -13,7 +13,7 @@ class RestaurantList extends React.Component {
 
   getRestaurantList() {
     const { cuisine } = this.props;
-    const endpoint = `/api/restaurants//${cuisine}`;
+    const endpoint = `/api/restaurants/${cuisine}`;
     $.ajax({
       url: endpoint,
       method: 'GET',
