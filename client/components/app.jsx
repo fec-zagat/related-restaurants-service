@@ -8,23 +8,38 @@ class App extends React.Component {
     super();
     this.state = {
       data: [],
-      currentDistrict: '',
-      currentCuisine: '',
+      district: '',
+      cuisine: '',
       currentRestaurant: '',
+      restaurantID: '5caa9e7df0567c367485adc2',
     };
   }
 
   componentDidMount() {
-    const endpoint = '/api/restaurants/';
+    const { restaurantID } = this.state;
+    const id = restaurantID;
+    const endpoint = `/api/${id}`;
+    fetch(endpoint)
+      .then(response => response.json())
+      .then((query) => {
+        this.setState({
+          district: query.district,
+          cuisine: query.cuisine,
+          currentRestaurant: query.name,
+        });
+        return (this.getRestaurantList());
+      });
+  }
+
+  getRestaurantList() {
+    const { district, cuisine } = this.state;
+    const endpoint = `/api/restaurants/${district}/${cuisine}`;
     $.ajax({
       url: endpoint,
       method: 'GET',
       success: (query) => {
         this.setState({
           data: query,
-          currentDistrict: query[3].district,
-          currentCuisine: query[3].cuisine,
-          currentRestaurant: query[3].name,
         });
       },
     });
@@ -32,14 +47,14 @@ class App extends React.Component {
 
   render() {
     const {
-      data, currentCuisine, currentDistrict, currentRestaurant,
+      data, cuisine, currentRestaurant,
     } = this.state;
 
     return (
       <div className="related-places">
         <h5 className="related-places-section-title">RELATED PLACES</h5>
-        <div className="related-near-title">{`More ${currentCuisine} near ${currentRestaurant}`}</div>
-        <RestaurantList data={data} cuisine={currentCuisine} district={currentDistrict} />
+        <div className="related-near-title">{`More ${cuisine} near ${currentRestaurant}`}</div>
+        <RestaurantList data={data} cuisine={cuisine} currentRestaurant={currentRestaurant} />
       </div>
     );
   }

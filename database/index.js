@@ -35,5 +35,16 @@ const retrieve = (options, callback) => {
     }
   });
 };
+const searchID = (id, callback) => {
+  Restaurant.findById(id, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
 
-module.exports = { Restaurant, save, retrieve };
+module.exports = {
+  Restaurant, save, retrieve, searchID,
+};

@@ -32,13 +32,33 @@ app.post('/api/restaurants/', (req, res) => {
   });
 });
 
-app.get('/api/restaurants', (req, res) => {
-  // console.log(req.paramas.cuisine);
+app.get('/api/restaurants/:district/:cuisine', (req, res) => {
   const options = {
-    // cuisine: req.paramas.cuisine,
-    // district: req.paramas.district,
+    cuisine: req.params.cuisine,
+    district: req.params.district,
   };
   db.retrieve(options, (err, success) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.status(200).send(success);
+  });
+});
+
+app.get('/api/restaurants/:cuisine', (req, res) => {
+  const options = {
+    cuisine: req.params.cuisine,
+  };
+  db.retrieve(options, (err, success) => {
+    if (err) {
+      res.status(400).send(err);
+    }
+    res.status(200).send(success);
+  });
+});
+
+app.get('/api/:id', (req, res) => {
+  db.searchID(req.params.id, (err, success) => {
     if (err) {
       res.status(400).send(err);
     }
