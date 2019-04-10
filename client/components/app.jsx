@@ -11,15 +11,18 @@ class App extends React.Component {
       district: '',
       cuisine: '',
       currentRestaurant: '',
-      restaurantID: '5caa9e7df0567c367485adc2',
     };
   }
 
   componentDidMount() {
-    const { restaurantID } = this.state;
-    const id = restaurantID;
+    const weburl = window.location.pathname;
+    const id = weburl.split('-')[2].split('/')[0];
     const endpoint = `/api/${id}`;
-    fetch(endpoint)
+    fetch(endpoint, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(response => response.json())
       .then((query) => {
         this.setState({
@@ -28,7 +31,8 @@ class App extends React.Component {
           currentRestaurant: query.name,
         });
         return (this.getRestaurantList());
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   getRestaurantList() {
@@ -59,5 +63,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
