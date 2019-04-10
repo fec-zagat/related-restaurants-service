@@ -76,6 +76,7 @@ const makeData = () => {
   const data = [];
   for (let i = 0; i < 1000; i += 1) {
     const restaurantInfo = {
+      id: i,
       name: randomName(),
       city: faker.random.arrayElement(randomCities),
       cuisine: faker.random.arrayElement(['Argentina', 'Cajun', 'Estonian', 'Chinese', 'Filipino', 'Italian', 'Korean', 'Mexican', 'Polish', 'Romanian', 'Russian', 'Thai', 'Pakistani', 'Japanese', 'Nepalese', 'Peruvian', 'Portuguese', 'Brazilian', 'Malaysian', 'Indian']),
