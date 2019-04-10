@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fecsampledata');
 
 const similarRestaurant = mongoose.Schema({
+  id: Number,
   name: String,
   city: String,
   cuisine: String,
@@ -35,6 +36,15 @@ const retrieve = (options, callback) => {
     }
   });
 };
+const searchByID = (options, callback) => {
+  Restaurant.findOne(options, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  });
+};
 const searchID = (id, callback) => {
   Restaurant.findById(id, (err, success) => {
     if (err) {
@@ -46,5 +56,5 @@ const searchID = (id, callback) => {
 };
 
 module.exports = {
-  Restaurant, save, retrieve, searchID,
+  Restaurant, save, retrieve, searchID, searchByID,
 };
