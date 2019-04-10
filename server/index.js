@@ -11,10 +11,11 @@ const db = require('../database/index');
 app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/r/restaurant-city-:id', express.static(path.join(__dirname, '../public')));
 
 app.post('/api/restaurants/', (req, res) => {
   const restaurantInfo = {
+    id: req.body.id,
     name: req.body.name,
     city: req.body.city,
     cuisine: req.body.cuisine,
@@ -57,8 +58,11 @@ app.get('/api/restaurants/:cuisine', (req, res) => {
   });
 });
 
-app.get('/api/:id', (req, res) => {
-  db.searchID(req.params.id, (err, success) => {
+app.get('/api/:id/', (req, res) => {
+  const options = {
+    id: req.params.id,
+  };
+  db.searchByID(options, (err, success) => {
     if (err) {
       res.status(400).send(err);
     }
