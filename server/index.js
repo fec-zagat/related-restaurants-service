@@ -11,7 +11,8 @@ const db = require('../database/index');
 app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use('/r/restaurant-city-:id', express.static(path.join(__dirname, '../public')));
+app.use('/r/:restaurant', express.static(path.join(__dirname, '../public')));
+
 
 app.post('/api/restaurants/', (req, res) => {
   const restaurantInfo = {
