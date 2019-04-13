@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/fecsampledata');
+mongoose.connect('mongodb://172.17.0.3:27017/fecsampledata');
 
 const similarRestaurant = mongoose.Schema({
   id: Number,
