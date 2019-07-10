@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import RestaurantList from './RestaurantList';
 import '../../styles/relatedrestaurantssection.css';
 
@@ -38,15 +37,18 @@ class App extends React.Component {
   getRestaurantList() {
     const { district, cuisine } = this.state;
     const endpoint = `/api/restaurants/${district}/${cuisine}`;
-    $.ajax({
-      url: endpoint,
-      method: 'GET',
-      success: (query) => {
+    fetch(endpoint, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.json())
+      .then((query) => {
         this.setState({
           data: query,
         });
-      },
-    });
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
