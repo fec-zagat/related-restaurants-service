@@ -21,6 +21,7 @@
 Start server with : npm run serverStart
 Bundle webpack with : npm run prod:react
 Seed database with : npm run seedDB
+View app by visiting: localhost/3004/r/(number 1-100)
 
 ## Requirements
 
