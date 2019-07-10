@@ -65,8 +65,8 @@ const randomCities = [faker.fake('{{address.city}}'), faker.fake('{{address.city
 const pictureSet = () => {
   const pictureArray = [];
   while (pictureArray.length < 20) {
-    if (!pictureArray.includes(`https://s3-us-west-1.amazonaws.com/samplepicturesfec/${Math.floor(Math.random() * (100 - 1) + 1)}.jpg`)) {
-      pictureArray.push(`https://s3-us-west-1.amazonaws.com/samplepicturesfec/${Math.floor(Math.random() * (100 - 1) + 1)}.jpg`);
+    if (!pictureArray.includes(`https://s3-us-west-1.amazonaws.com/fecthumbnail400/${Math.floor(Math.random() * (100 - 1) + 1)}_tn.jpg`)) {
+      pictureArray.push(`https://s3-us-west-1.amazonaws.com/fecthumbnail400/${Math.floor(Math.random() * (100 - 1) + 1)}_tn.jpg`);
     }
   }
   return pictureArray;
