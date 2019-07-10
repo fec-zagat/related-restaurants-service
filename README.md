@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/fec-zagat/sidebar-service
+  - https://github.com/fec-zagat/photo-carousel-service
+  - https://github.com/fec-zagat/search-nav-service
+  - https://github.com/fec-zagat/related-restaurants-service (current)
 
 ## Table of Contents
 
@@ -17,14 +17,16 @@
 
 ## Usage
 
-> Some usage instructions
+> Some usage instructions:
+Start server with : npm run serverStart
+Bundle webpack with : npm run prod:react
+Seed database with : npm run seedDB
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
 
 ## Development
 
@@ -33,7 +35,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
+npm install -g nodemon
 npm install
 ```
 
