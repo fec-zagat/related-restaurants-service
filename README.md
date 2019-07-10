@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Related restaurant module for a restaurant review application
 
 ## Related Projects
 
