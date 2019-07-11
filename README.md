@@ -21,6 +21,7 @@
   - Start server with : npm run serverStart
   - Bundle webpack with : npm run prod:react
   - Seed database with : npm run seedDB
+  - Pull branch for local use with: git pull origin local
   - View app by visiting: localhost:3004/r/restaurant-city-(number 1-100)
 
 ## Requirements
