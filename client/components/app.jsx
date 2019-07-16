@@ -3,8 +3,8 @@ import RestaurantList from './RestaurantList';
 import '../../styles/relatedrestaurantssection.css';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: [],
       district: '',
