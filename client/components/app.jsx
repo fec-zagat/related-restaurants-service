@@ -17,6 +17,7 @@ class App extends React.Component {
     const weburl = window.location.pathname;
     const id = weburl.split('-')[2].split('/')[0];
     const endpoint = `/api/${id}`;
+
     fetch(endpoint, {
       headers: {
         'Content-Type': 'application/json',
@@ -37,6 +38,7 @@ class App extends React.Component {
   getRestaurantList() {
     const { district, cuisine } = this.state;
     const endpoint = `/api/restaurants/${district}/${cuisine}`;
+
     fetch(endpoint, {
       headers: {
         'Content-Type': 'application/json',

@@ -14,6 +14,7 @@ class RestaurantList extends React.Component {
   getRestaurantList() {
     const { cuisine } = this.props;
     const endpoint = `/api/restaurants/${cuisine}`;
+
     $.ajax({
       url: endpoint,
       method: 'GET',
@@ -31,6 +32,7 @@ class RestaurantList extends React.Component {
     const { additionalRestaurants } = this.state;
     let list = [];
     const filter = data.filter(restaurant => restaurant.name !== currentRestaurant);
+
     if (filter.length === 6) {
       list = filter;
     } else if (filter.length > 6) {
