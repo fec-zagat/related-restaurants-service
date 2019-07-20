@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RestaurantList from './RestaurantList';
 import '../../styles/relatedrestaurantssection.css';
 
@@ -67,4 +68,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+ReactDOM.render(<App />, document.getElementById('app'));
