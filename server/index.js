@@ -6,65 +6,23 @@ const cors = require('cors');
 const app = express();
 const PORT = 3004;
 
-const db = require('../database/index');
+const {
+  seedData, filterDistrictAndCuisine, filterCuisine, findById,
+} = require('./controllers/databaseControllers');
 
 app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/r/:restaurant', express.static(path.join(__dirname, '../public')));
 
-app.post('/api/restaurants/', (req, res) => {
-  const restaurantInfo = {
-    name: req.body.name,
-    city: req.body.city,
-    cuisine: req.body.cuisine,
-    district: req.body.district,
-    price: req.body.price,
-    zagatRating: req.body.zagatRating,
-    googleRating: req.body.googleRating,
-    description: req.body.description,
-  };
-  db.save(restaurantInfo, (err, success) => {
-    if (err) {
-      return;
-    }
-    res.send('query was an success', success);
-  });
-});
 
-app.get('/api/restaurants/:district/:cuisine', (req, res) => {
-  const options = {
-    cuisine: req.params.cuisine,
-    district: req.params.district,
-  };
-  db.retrieve(options, (err, success) => {
-    if (err) {
-      res.status(400).send(err);
-    }
-    res.status(200).send(success);
-  });
-});
+app.post('/api/restaurants/', seedData);
 
-app.get('/api/restaurants/:cuisine', (req, res) => {
-  const options = {
-    cuisine: req.params.cuisine,
-  };
-  db.retrieve(options, (err, success) => {
-    if (err) {
-      res.status(400).send(err);
-    }
-    res.status(200).send(success);
-  });
-});
+app.get('/api/restaurants/:district/:cuisine', filterDistrictAndCuisine);
 
-app.get('/api/:id', (req, res) => {
-  db.searchID(req.params.id, (err, success) => {
-    if (err) {
-      res.status(400).send(err);
-    }
-    res.status(200).send(success);
-  });
-});
+app.get('/api/restaurants/:cuisine', filterCuisine);
+
+app.get('/api/:id/', findById);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

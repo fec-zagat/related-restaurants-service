@@ -8,17 +8,17 @@ import '../../styles/photo.css';
 class RestaurantView extends React.Component {
   constructor(props) {
     super(props);
-    const {
-      pictures,
-    } = props.info;
     this.state = {
-      pictures,
       index: 0,
     };
+    this.nextPhotoLeft = this.nextPhotoLeft.bind(this);
+    this.nextPhotoRight = this.nextPhotoRight.bind(this);
   }
 
   nextPhotoRight() {
-    const { pictures, index } = this.state;
+    const { index } = this.state;
+    const { info: { pictures } } = this.props;
+
     if (index < pictures.length - 1) {
       this.setState({
         index: index + 1,
@@ -31,7 +31,9 @@ class RestaurantView extends React.Component {
   }
 
   nextPhotoLeft() {
-    const { pictures, index } = this.state;
+    const { index } = this.state;
+    const { info: { pictures } } = this.props;
+
     if (index > 0) {
       this.setState({
         index: index - 1,
@@ -44,17 +46,18 @@ class RestaurantView extends React.Component {
   }
 
   render() {
-    const { pictures, index } = this.state;
+    const { index } = this.state;
     const {
       info: {
-        name, cuisine, district, zagatRating, googleRating, description, price,
+        name, cuisine, district, zagatRating, googleRating, description, price, pictures,
       },
     } = this.props;
+
     return (
       <div className="single-restaurant">
         <div className="image-container" style={{ position: 'relative' }}>
-          <div className="left-arrow" style={{ position: 'absolute', top: 110, left: 0 }} onClick={() => this.nextPhotoLeft()} onKeyPress={this.handleKeyPress} role="button" tabIndex={0} />
-          <div className="right-arrow" style={{ position: 'absolute', top: 110, right: 0 }} onClick={() => this.nextPhotoRight()} onKeyPress={this.handleKeyPress} role="button" tabIndex={0} />
+          <div className="left-arrow" style={{ position: 'absolute', top: 110, left: 0 }} onClick={this.nextPhotoLeft} onKeyPress={this.handleKeyPress} role="button" tabIndex={0} />
+          <div className="right-arrow" style={{ position: 'absolute', top: 110, right: 0 }} onClick={this.nextPhotoRight} onKeyPress={this.handleKeyPress} role="button" tabIndex={0} />
           <img className="image-carousel-viewer" src={pictures[index]} alt="" />
         </div>
         <div className="details-section">
